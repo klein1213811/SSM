@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--mybatis配置文件: 从mybatis官网中拷贝-->
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <settings>
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+
+    <typeAliases>
+        <package name="com.yt.furn.bean"/>
+    </typeAliases>
+
+    <!--插件要放在类型别名后面-->
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageInterceptor">
+            <!--
+                如果请求的分页 > 总页数，就显示最后一页
+                如果请求的分页 < 0 ，就显示最后一页
+            -->
+            <property name="reasonable" value="true"/>
+        </plugin>
+    </plugins>
+</configuration>
